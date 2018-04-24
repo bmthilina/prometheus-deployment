@@ -29,6 +29,7 @@ else
 	INIT_SCRIPT="/etc/init.d/node_exporter"
 	INIT_SCRIPT_SRC="https://raw.githubusercontent.com/bmthilina/init-scripts/master/node_exporter"	
 	sudo curl $INIT_SCRIPT_SRC > $INIT_SCRIPT
+	sudo chmod u+x $INIT_SCRIPT
 	sudo chkconfig --add node_exporter
 	sudo service node_exporter start
 fi
