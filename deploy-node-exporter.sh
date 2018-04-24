@@ -19,7 +19,7 @@ if ps -ef | grep systemd | grep -v grep > /dev/null
 then
 	INIT_SCRIPT="/etc/systemd/system/node_exporter.service"
 	INIT_SCRIPT_SRC="https://raw.githubusercontent.com/bmthilina/systemd-scripts/master/node_exporter.service"
-	sudo curl INIT_SCRIPT_SRC > INIT_SCRIPT
+	sudo curl $INIT_SCRIPT_SRC > $INIT_SCRIPT
 	sudo systemctl daemon-reload
 	sudo systemctl start node_exporter
 	sudo systemctl status node_exporter
@@ -28,7 +28,7 @@ then
 else
 	INIT_SCRIPT="/etc/init.d/node_exporter"
 	INIT_SCRIPT_SRC="https://raw.githubusercontent.com/bmthilina/init-scripts/master/node_exporter"	
-	sudo curl INIT_SCRIPT_SRC > INIT_SCRIPT
+	sudo curl $INIT_SCRIPT_SRC > $INIT_SCRIPT
 	sudo chkconfig --add node_exporter
 	sudo service node_exporter start
 fi
